@@ -29,8 +29,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseAuthorization(); // Built-in security middleware
+app.UseAuthorization(); 
 
-app.MapControllers(); // Hooks up your routes
+app.MapControllers(); 
 
 app.Run();
