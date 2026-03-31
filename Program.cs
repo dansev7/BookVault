@@ -5,13 +5,11 @@ using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// --- SERVICE REGISTRATION (The DI Container) ---
-builder.Services.AddControllers(); // Registers your "Police Officers"
+builder.Services.AddControllers(); 
 builder.Services.AddOpenApi();
 builder.Services.AddValidation();
 
 
-// Add AutoMapper registration
 builder.Services.AddAutoMapper(cfg => {}, typeof(Program));
 
 builder.Services.AddScoped<IBookService, BookService>();
@@ -21,7 +19,6 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 var app = builder.Build();
 
-// --- MIDDLEWARE PIPELINE (The "Express.use" section) ---
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();

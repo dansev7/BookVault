@@ -1,32 +1,32 @@
-using Microsoft.AspNetCore.Mvc;
 using BookVaultApi.DTOs;
 using BookVaultApi.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BookVaultApi.Controllers;
 
 
-[ApiController] 
-[Route("api/[controller]")] 
-public class BooksController(IBookService bookService) : ControllerBase 
+[ApiController]
+[Route("api/[controller]")]
+public class BooksController(IBookService bookService) : ControllerBase
 {
     [HttpGet]
     public async Task<ActionResult<IEnumerable<BookDto>>> GetBooks()
     {
         var books = await bookService.GetAllBooksAsync();
-        return Ok(books); 
+        return Ok(books);
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<BookDto>> GetBook(int id) 
+    public async Task<ActionResult<BookDto>> GetBook(int id)
     {
         var book = await bookService.GetBookByIdAsync(id);
 
         if (book == null)
         {
-            return NotFound(); 
+            return NotFound();
         }
 
-        return Ok(book); 
+        return Ok(book);
     }
 
     [HttpPost]
@@ -42,7 +42,7 @@ public class BooksController(IBookService bookService) : ControllerBase
     public async Task<IActionResult> UpdateBook(int id, [FromBody] UpdateBookDto updateDto)
     {
         var result = await bookService.UpdateBookAsync(id, updateDto);
-        
+
         if (!result) return NotFound();
 
         return NoContent();
@@ -52,9 +52,9 @@ public class BooksController(IBookService bookService) : ControllerBase
     public async Task<IActionResult> DeleteBook(int id)
     {
         var result = await bookService.DeleteBookAsync(id);
-        
+
         if (!result) return NotFound();
 
-        return NoContent(); 
+        return NoContent();
     }
 }

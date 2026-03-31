@@ -159,3 +159,4 @@ C:\Users\hp\source\repos\BookVaultApi\BookVaultApi\obj\Debug\net10.0\refint\Book
 C:\Users\hp\source\repos\BookVaultApi\BookVaultApi\obj\Debug\net10.0\BookVaultApi.pdb
 C:\Users\hp\source\repos\BookVaultApi\BookVaultApi\obj\Debug\net10.0\BookVaultApi.genruntimeconfig.cache
 C:\Users\hp\source\repos\BookVaultApi\BookVaultApi\obj\Debug\net10.0\ref\BookVaultApi.dll
+C:\Users\hp\source\repos\BookVaultApi\BookVaultApi\obj\Debug\net10.0\BookVaultApi.sourcelink.json

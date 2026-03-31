@@ -1,8 +1,8 @@
 using AutoMapper;
-using Microsoft.EntityFrameworkCore;
 using BookVaultApi.Data;
 using BookVaultApi.DTOs;
 using BookVaultApi.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookVaultApi.Services;
 
@@ -10,6 +10,7 @@ public class BookService(AppDbContext context, IMapper mapper) : IBookService
 {
     public async Task<IEnumerable<BookDto>> GetAllBooksAsync()
     {
+        // "SELECT * FROM Books"
         var books = await context.Books.ToListAsync();
 
         return mapper.Map<IEnumerable<BookDto>>(books);
@@ -17,6 +18,10 @@ public class BookService(AppDbContext context, IMapper mapper) : IBookService
 
     public async Task<BookDto?> GetBookByIdAsync(int id)
     {
+        //SELECT * 
+        //FROM Books 
+        //WHERE Id = 1 
+        //LIMIT 1;
         var book = await context.Books.FindAsync(id);
         return mapper.Map<BookDto>(book);
     }
